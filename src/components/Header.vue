@@ -4,7 +4,9 @@ import SearchIcon from '@/assets/search.svg'
 </script>
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <RouterLink to="/" title="Votar para página inicial">
+      <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    </RouterLink>
     <nav>
       <RouterLink to="/">Loja</RouterLink>
       <RouterLink to="/about">Novos Produtos</RouterLink>
