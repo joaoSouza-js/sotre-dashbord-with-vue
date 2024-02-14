@@ -7,14 +7,19 @@ import Presentation from "@/components/Presentation.vue"
 
 <template>
   <Header></Header>
+  <div class="routeViewWrapper">
+    <RouterView />
 
-  <RouterView />
+  </div>
 </template>
 
 <style scoped>
 header {
   line-height: 1.5;
   max-height: 100vh;
+}
+.routeViewWrapper{
+  padding-top: 5.6rem;
 }
 .label {
   @apply 

@@ -57,7 +57,7 @@
             transition-all;
 }
 #presentation-content button:hover {
-  @apply bg-black/90
+  @apply bg-black/80
             rounded-full
             py-4
             px-12

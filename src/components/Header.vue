@@ -29,7 +29,7 @@ import SearchIcon from '@/assets/search.svg'
 
 <style scoped>
 header {
-  @apply py-6 px-6 flex gap-10 items-center justify-center;
+  @apply py-6 px-6 flex gap-10 items-center justify-center fixed bg-white left-0 right-0 z-10;
 }
 
 nav:first-of-type {
