@@ -30,7 +30,7 @@
     </footer>
   </section>
 </template>
-<style>
+<style scoped>
 #presentation-content {
   @apply flex px-24  bg-gray-300 justify-center;
 }

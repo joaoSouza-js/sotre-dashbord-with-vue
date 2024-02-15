@@ -28,9 +28,12 @@
             <img src="@/assets/iconPlus.svg" alt="" />
           </button>
         </div>
-        <button v-on:click="addProductsInCard" :disabled="productAmountSelected <= 0 || isSubmittingCard">
-            <span v-if="isSubmittingCard === false ">Adicionar ao Carrinho</span>
-            <span  v-if="isSubmittingCard " class="loader"></span>
+        <button
+          v-on:click="addProductsInCard"
+          :disabled="productAmountSelected <= 0 || isSubmittingCard"
+        >
+          <span v-if="isSubmittingCard === false">Adicionar ao Carrinho</span>
+          <span v-if="isSubmittingCard" class="loader"></span>
         </button>
       </div>
     </section>
@@ -63,24 +66,24 @@ div#productDetailsContainer > div {
 }
 
 .loader {
-    width: 1rem;
-    height: 1rem;
-    border: 2px solid #FFF;
-    border-bottom-color: transparent;
-    border-radius: 50%;
-    display: inline-block;
-    box-sizing: border-box;
-    animation: rotation 1s linear infinite;
-    }
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid #fff;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
 
-    @keyframes rotation {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-    } 
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 .product_rate {
   @apply flex mt-2 items-center gap-4;
@@ -156,7 +159,6 @@ div#product_card > button:not(:disabled):hover {
 
 div#product_card > button:disabled {
   @apply bg-black/70 cursor-not-allowed;
-  
 }
 </style>
 
@@ -171,7 +173,7 @@ export default {
     return {
       productDetails,
       id: this.$route.params.id,
-      productAmountSelected: 0,
+      productAmountSelected: 1,
       isSubmittingCard: false,
       isFetchingProductDetails: true
     }
@@ -209,26 +211,28 @@ export default {
       if (this.productAmountSelected === 0) return
       this.productAmountSelected--
     },
-    async addProductsInCard(){
-        try {
-            this.isSubmittingCard = true
-            const card = {
-                userId:5,
-                date: String(new Date()),
-                products: [
-                    {productId: this.id, quantity: this.productAmountSelected}
-                ]
-
-            }
-            await axios.post("https://fakestoreapi.com/carts", card)
-
-        } catch (error) {
-            console.error(error)
-           
+   
+  },
+  methods: {
+    async addProductsInCard() {
+      try {
+        this.isSubmittingCard = true
+        const card = {
+          userId: 5,
+          date: String(new Date()),
+          products: [{ productId: this.id, quantity: this.productAmountSelected }]
         }
-        finally {
-            this.isSubmittingCard = false
-        }
+        await axios.post('https://fakestoreapi.com/carts', card)
+        
+        this.$router.push({
+          name: 'userCard'
+        
+        })
+      } catch (error) {
+        console.error(error)
+      } finally {
+        this.isSubmittingCard = false
+      }
     }
   }
 }

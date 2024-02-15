@@ -22,7 +22,7 @@ import SearchIcon from '@/assets/search.svg'
       <RouterLink to="/" title="Navegar para perfil">
         <img alt="ícone do usuário" src="@/assets/iconUser.svg" />
       </RouterLink>
-      <RouterLink to="/" title="Checar carrinho">
+      <RouterLink to="/card" title="Checar carrinho">
         <img alt="ícone de um carrinho de compras" src="@/assets/iconCard.svg" />
       </RouterLink>
     </nav>
