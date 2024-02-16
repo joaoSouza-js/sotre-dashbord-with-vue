@@ -11,7 +11,7 @@ import SearchIcon from '@/assets/search.svg'
       <RouterLink to="/">Loja</RouterLink>
       <RouterLink to="/about">Novos Produtos</RouterLink>
       <RouterLink to="/">Marcas</RouterLink>
-      <RouterLink to="/about">Dashboard</RouterLink>
+      <RouterLink to="/dashboard">Dashboard</RouterLink>
     </nav>
     <form>
       <img alt="Vue logo" src="@/assets/search.svg" />
