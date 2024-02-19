@@ -219,7 +219,7 @@ section > button:disabled {
 </style>
 
 <script>
-import axios from 'axios'
+import {api} from "@/services/axios.js"
 import { PRICE_FORMATTER } from '@/utils/priceFormatter'
 
 export default {
@@ -228,8 +228,8 @@ export default {
       isFetchingCard: true,
       products: [],
       allProductsPrice: 0,
-      discount: 0,
-      Fee: 0
+      discount: 20,
+      Fee: 15
     }
   },
   async mounted() {
@@ -287,7 +287,7 @@ export default {
     async fetchUserProducts() {
       try {
       
-        const userProductsResponse = await axios.get('https://fakestoreapi.com/carts/user/2')
+        const userProductsResponse = await api.get('/carts/user/2')
         const userProducts = userProductsResponse.data[0]
         const products = await Promise.all(userProducts.products.map(this.fetchProductDetails))
         
@@ -297,7 +297,7 @@ export default {
       }
     },
     async fetchProductDetails(product) {
-      const productResponse = await axios.get(`https://fakestoreapi.com/products/${product.productId}`)
+      const productResponse = await api.get(`/products/${product.productId}`)
       return {
         ...productResponse.data,
         quantity: product.quantity

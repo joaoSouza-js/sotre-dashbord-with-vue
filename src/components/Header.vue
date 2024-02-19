@@ -9,8 +9,8 @@ import SearchIcon from '@/assets/search.svg'
     </RouterLink>
     <nav>
       <RouterLink to="/">Loja</RouterLink>
-      <RouterLink to="/about">Novos Produtos</RouterLink>
-      <RouterLink to="/">Marcas</RouterLink>
+      <a href="#newClothesArrivalsContainer">Novos Produtos</a>
+      <a to="/">Marcas</a>
       <RouterLink to="/dashboard">Dashboard</RouterLink>
     </nav>
     <form>

@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section id="newClothesArrivalsContainer">
     <strong> Novidades </strong>
 
     <Carousel :items-to-show="4.2" class="carousel_wappper">
@@ -36,8 +36,8 @@
 </template>
 
 <style scoped>
-section {
-  @apply mt-16 flex flex-col;
+section#newClothesArrivalsContainer {
+  @apply mt-16 flex flex-col max-w-[1920px] mx-auto; 
 }
 
 section strong {
@@ -100,8 +100,9 @@ a.sell_all:hover {
 </style>
 
 <script>
-import axios from 'axios'
+
 import { defineComponent } from 'vue'
+import {api} from "@/services/axios.js"
 import { RouterLink } from 'vue-router'
 import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
 import { PRICE_FORMATTER } from '@/utils/priceFormatter'
@@ -120,7 +121,7 @@ export default defineComponent({
   },
   async mounted() {
     try {
-      const productsResponse = await axios.get('https://fakestoreapi.com/products/')
+      const productsResponse = await api.get('/products/')
       const products = productsResponse.data
      
       this.products = products

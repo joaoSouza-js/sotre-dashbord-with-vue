@@ -10,15 +10,15 @@
         <button>Compre Agora</button>
         <div id="presentation-store-highlights">
           <div>
-            <strong>200 +</strong>
+            <strong>+ 200</strong>
             <span>Marcas Internacionais</span>
           </div>
           <div>
-            <strong>2,000+</strong>
+            <strong>+ 2,000</strong>
             <span>Produtos de Alta Qualidade</span>
           </div>
           <div>
-            <strong>30,000+</strong>
+            <strong>+ 30,000</strong>
             <span>Clientes Satisfeitos</span>
           </div>
         </div>
